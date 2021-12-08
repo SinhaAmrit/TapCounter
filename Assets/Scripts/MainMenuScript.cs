@@ -1,6 +1,7 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -39,5 +40,9 @@ public class MainMenuScript : MonoBehaviour
         Settings.SetActive(false);
         HowToPlay.SetActive(false);
         Credits.SetActive(false);
+    }
+    public void PlayBtnClicked()
+    {
+        SceneManager.LoadScene("GameplayScene");
     }
 }
