@@ -8,6 +8,7 @@ public class GameplayUI : MonoBehaviour
 {
 
     public GameObject TapCountText;
+    public Text TimerText;
     public GameManager gameManager;
 
     // Start is called before the first frame update
@@ -15,6 +16,11 @@ public class GameplayUI : MonoBehaviour
     {
         
     }
+    public void UpdateTimerText()
+    {
+        TimerText.GetComponent<Text>().text = gameManager.Timer.ToString();
+    }
+
     public void UpdateTapCountText()
     {
         TapCountText.GetComponent<Text>().text = gameManager.tapCount.ToString();
