@@ -11,16 +11,18 @@ public class GameplayUI : MonoBehaviour
     public GameObject GameOverPanel;
     public GameObject WinPanel;
     public Text TimerText;
+    public Text HighScoreText;
     public GameManager gameManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    public void UpdateTimerText()
+    void Start(){}
+    public void ShowTimerText()
     {
         TimerText.GetComponent<Text>().text = gameManager.Timer.ToString();
+    }
+
+    public void ShowHighScoreText()
+    {
+        HighScoreText.GetComponent<Text>().text = GameManager.HighScore.ToString();
     }
 
     public void UpdateTapCountText()
@@ -37,5 +39,10 @@ public class GameplayUI : MonoBehaviour
     {
         if(gameManager.HasWon)  WinPanel.SetActive(true);
         else GameOverPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("GamePlayScene");
     }
 }
