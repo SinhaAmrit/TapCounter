@@ -5,11 +5,13 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    public int tapCount;
+    public int TapCount;
+    public int TargetCount;
     public GameplayUI gamePlayUI;
     public float DefaultTimerValue = 5;
     public float Timer;
-    public bool TimerHasEnded = false;
+    public bool TimerHasEnded;
+    public bool HasWon;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +27,13 @@ public class GameManager : MonoBehaviour
             if(Timer<=0){
                 TimerHasEnded = true;
                 Timer = 0;
+                if(TapCount > TargetCount) HasWon = true;
+                gamePlayUI.ShowGameOverOrWin();
+                Debug.Log("Timer Has Ended "+ HasWon.ToString());
             }
             if(Input.GetMouseButtonDown(0))
             {
-                tapCount++;
+                TapCount++;
                 gamePlayUI.UpdateTapCountText();
             }
         }

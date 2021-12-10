@@ -8,6 +8,8 @@ public class GameplayUI : MonoBehaviour
 {
 
     public GameObject TapCountText;
+    public GameObject GameOverPanel;
+    public GameObject WinPanel;
     public Text TimerText;
     public GameManager gameManager;
 
@@ -23,11 +25,17 @@ public class GameplayUI : MonoBehaviour
 
     public void UpdateTapCountText()
     {
-        TapCountText.GetComponent<Text>().text = gameManager.tapCount.ToString();
+        TapCountText.GetComponent<Text>().text = gameManager.TapCount.ToString();
     }
 
     public void BackBtnClicked()
     {
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void ShowGameOverOrWin()
+    {
+        if(gameManager.HasWon)  WinPanel.SetActive(true);
+        else GameOverPanel.SetActive(true);
     }
 }
