@@ -675,7 +675,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 456548816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1879156975}
+        m_TargetAssemblyTypeName: GameplayUI, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &456548816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,7 +1707,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1879156975}
         m_TargetAssemblyTypeName: GameplayUI, Assembly-CSharp
-        m_MethodName: BackBtnClicked
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2214,7 +2226,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1455964865}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1879156975}
+        m_TargetAssemblyTypeName: GameplayUI, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1455964865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2323,7 +2347,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: Resume
 --- !u!222 &1480935790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2705,7 +2729,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804658184}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1879156975}
+        m_TargetAssemblyTypeName: GameplayUI, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1804658184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2897,6 +2933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TapCountText: {fileID: 265082614}
   GameOverPanel: {fileID: 745855660}
+  ResumePanel: {fileID: 690179764}
   WinPanel: {fileID: 1562234002}
   TimerText: {fileID: 127122926}
   HighScoreText: {fileID: 898610023}

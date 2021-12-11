@@ -9,8 +9,10 @@ public class GameplayUI : MonoBehaviour
 
     public GameObject TapCountText;
     public GameObject GameOverPanel;
+    public GameObject ResumePanel;
     public GameObject WinPanel;
     public Text TimerText;
+    public bool isPaused;
     public Text HighScoreText;
     public GameManager gameManager;
 
@@ -44,5 +46,23 @@ public class GameplayUI : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("GamePlayScene");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void Pause()
+    {
+        ResumePanel.SetActive(true);
+        isPaused = true;
+        Time.timeScale = 0;
+    }
+
+    public void Resume(){
+        isPaused = false;
+        ResumePanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }

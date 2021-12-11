@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
                 
                 Debug.Log(HighScore);
             }
-            if(Input.GetMouseButtonDown(0))
+            if(!gamePlayUI.isPaused && Input.GetMouseButtonDown(0))
             {
                 TapCount++;
                 gamePlayUI.UpdateTapCountText();
