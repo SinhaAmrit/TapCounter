@@ -12,30 +12,41 @@ public class GameManager : MonoBehaviour
     public bool TimerHasEnded;
     public static int HighScore;
     public GameplayUI gamePlayUI;
+    public float CountDownTimer;
+    public bool CountDownTimerHasEnded;
     public float DefaultTimerValue = 5;
 
-    // Start is called before the first frame update
     void Start()
     {
+        CountDownTimer = 3;
+        CountDownTimerHasEnded = false;
         GetHighScore();
         Timer = DefaultTimerValue;
     }
 
     // Update is called once per frame
-    void Update() {;
+    void Update() {
+        if(!CountDownTimerHasEnded)
+        {
+            CountDownTimer -= Time.deltaTime;
+            if(CountDownTimer<=0)
+            {
+                CountDownTimerHasEnded = true;
+                gamePlayUI.DisableCountDownTimer();
+            }
+        }
         gamePlayUI.ShowHighScoreText();
-        gamePlayUI.ShowTimerText();
-        if(!TimerHasEnded){
+        if(CountDownTimerHasEnded && !TimerHasEnded)
+        {
             Timer -= Time.deltaTime;
-            if(Timer<=0){
+            if(Timer<=0)
+            {
                 TimerHasEnded = true;
                 Timer = 0;
                 HasWon = TapCount > TargetCount ? true : false;
                 HighScore = TapCount > HighScore ? TapCount : HighScore;
                 SaveHighScore();
                 gamePlayUI.ShowGameOverOrWin();
-                
-                Debug.Log(HighScore);
             }
             if(!gamePlayUI.isPaused && Input.GetMouseButtonDown(0))
             {

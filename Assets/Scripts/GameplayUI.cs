@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameplayUI : MonoBehaviour
 {
-
     public GameObject TapCountText;
     public GameObject GameOverPanel;
     public GameObject ResumePanel;
@@ -15,8 +14,20 @@ public class GameplayUI : MonoBehaviour
     public bool isPaused;
     public Text HighScoreText;
     public GameManager gameManager;
+    public Text CountDownTimerText;
 
     void Start(){}
+      public void Update()
+    {
+        CountDownTimerText.text = gameManager.CountDownTimer.ToString("N0");
+        TimerText.text = gameManager.Timer.ToString("N");
+    }
+
+    public void DisableCountDownTimer()
+    {
+        CountDownTimerText.gameObject.SetActive(false);
+    }
+
     public void ShowTimerText()
     {
         TimerText.GetComponent<Text>().text = gameManager.Timer.ToString();
