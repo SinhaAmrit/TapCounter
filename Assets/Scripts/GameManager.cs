@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        CountDownTimer = 3;
+        CountDownTimer = 5;
         CountDownTimerHasEnded = false;
         GetHighScore();
         Timer = DefaultTimerValue;
