@@ -9,8 +9,10 @@ public class MainMenuScript : MonoBehaviour
     public GameObject MainMenu;
     public GameObject Settings;
     public GameObject HowToPlay;
+    public GameObject SettingsBtn;
     public AudioSource gameAudio;
     public AudioClip clip;
+    public Animator sttingsAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class MainMenuScript : MonoBehaviour
     {
         PlayButtonSound();
         Settings.SetActive(true);
+        SettingsBtn.SetActive(false);
+        sttingsAnimator.SetTrigger("Slide-In");
         MainMenu.SetActive(false);
     }
 
@@ -45,10 +49,17 @@ public class MainMenuScript : MonoBehaviour
     public void BackBtnClicked() 
     {
         PlayButtonSound();
+        sttingsAnimator.SetTrigger("Slide-Out");
         MainMenu.SetActive(true);
-        Settings.SetActive(false);
+        StartCoroutine("DisableSettingsPanel");
         HowToPlay.SetActive(false);
         Credits.SetActive(false);
+    }
+    public IEnumerator DisableSettingsPanel()
+    {
+        yield return new WaitForSeconds(1);
+        Settings.SetActive(false);
+        SettingsBtn.SetActive(true);
     }
 
     public void PlayBtnClicked()
