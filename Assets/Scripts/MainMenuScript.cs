@@ -10,13 +10,15 @@ public class MainMenuScript : MonoBehaviour
     public GameObject Settings;
     public GameObject HowToPlay;
     public GameObject SettingsBtn;
+    public GameObject FadePanel;
     public AudioSource gameAudio;
     public AudioClip clip;
-    public Animator sttingsAnimator;
+    public Animator settingsAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
+        FadeIn();
         MainMenu.SetActive(true);
         Settings.SetActive(false);
         HowToPlay.SetActive(false);
@@ -28,7 +30,7 @@ public class MainMenuScript : MonoBehaviour
         PlayButtonSound();
         Settings.SetActive(true);
         SettingsBtn.SetActive(false);
-        sttingsAnimator.SetTrigger("Slide-In");
+        settingsAnimator.SetTrigger("Slide-In");
         MainMenu.SetActive(false);
     }
 
@@ -49,7 +51,7 @@ public class MainMenuScript : MonoBehaviour
     public void BackBtnClicked() 
     {
         PlayButtonSound();
-        sttingsAnimator.SetTrigger("Slide-Out");
+        settingsAnimator.SetTrigger("Slide-Out");
         MainMenu.SetActive(true);
         StartCoroutine("DisableSettingsPanel");
         HowToPlay.SetActive(false);
@@ -65,11 +67,28 @@ public class MainMenuScript : MonoBehaviour
     public void PlayBtnClicked()
     {
         PlayButtonSound();
+        FadeOut();
+        StartCoroutine("LoadLevelWithDelay");
+    }
+
+    IEnumerator LoadLevelWithDelay()
+    {
+        yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene("GameplayScene");
     }
 
     public void PlayButtonSound()
     {
         gameAudio.PlayOneShot(clip);
+    }
+
+    void FadeIn()
+    {
+        FadePanel.GetComponent<Animator>().SetTrigger("Fade-In");
+    }
+
+    void FadeOut()
+    {
+        FadePanel.GetComponent<Animator>().SetTrigger("Fade-Out");
     }
 }

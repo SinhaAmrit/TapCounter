@@ -26,6 +26,7 @@ public class GameplayUI : MonoBehaviour
     public void DisableCountDownTimer()
     {
         CountDownTimerText.gameObject.SetActive(false);
+        TapCountText.gameObject.SetActive(true);
     }
 
     public void ShowTimerText()
@@ -61,11 +62,13 @@ public class GameplayUI : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenuScene");
     }
 
     public void Pause()
     {
+        CountDownTimerText.gameObject.SetActive(false);
         ResumePanel.SetActive(true);
         isPaused = true;
         Time.timeScale = 0;
@@ -74,6 +77,8 @@ public class GameplayUI : MonoBehaviour
     public void Resume(){
         isPaused = false;
         ResumePanel.SetActive(false);
+        if(!gameManager.CountDownTimerHasEnded)
+        CountDownTimerText.gameObject.SetActive(true);
         Time.timeScale = 1;
     }
 }

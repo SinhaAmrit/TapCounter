@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Update() {
         if(!CountDownTimerHasEnded)
         {
+            gamePlayUI.TapCountText.gameObject.SetActive(false);
             CountDownTimer -= Time.deltaTime;
             if(CountDownTimer<=0)
             {
